@@ -1,0 +1,154 @@
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
+html,
+body {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+}
+
+.wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+#container {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    margin: auto;
+    transition: opacity .4s ease, transform .4s ease, width .4s ease;
+    opacity: 0;
+    transform: scale(1);
+    border-radius: 0px 15px 15px 0px;
+}
+
+#container.raise {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#container.active {
+    width: 350px;
+}
+
+#container>img {
+    height: 80px;
+    position: absolute;
+    top: 5px;
+    bottom: 0;
+    margin: auto;
+    object-fit: cover;
+    width: 107%;
+    /* filter: blur(2px) brightness(50%); */
+    -webkit-filter: blur(2px) brightness(50%);
+    opacity: 1;
+    box-shadow: 0px 0px 1px 1px white;
+}
+
+img {
+    border-radius: 15px;
+    width: 85px;
+    height: 85px;
+    transition: opacity .4s ease;
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    top: -19px;
+}
+
+img.active {
+    opacity: 1;
+}
+
+.cover {
+    border-radius: 15px;
+    width: 80px;
+    height: 80px;
+    position: relative;
+    z-index: 9;
+}
+
+.main {
+    position: absolute;
+    padding-left: 70px;
+    padding-top: 10px;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    max-width: 350px;
+    overflow: hidden;
+}
+
+#artists {
+    text-shadow: 2px 2px #000;
+    color: #fff;
+    font-weight: 600;
+    margin: 0;
+    font-size: 15px;
+    text-transform: uppercase;
+}
+
+#name {
+    text-shadow: 2px 2px #000;
+    color: #fff;
+    margin: 4px 0 0;
+    font-size: 24px;
+}
+
+h4,
+h2 {
+    opacity: 0;
+    white-space: nowrap;
+    padding-left: 20px;
+    transform: translateX(-50px);
+    transition: opacity .4s ease, transform .4s ease;
+    display: inline-block;
+}
+
+h4.active,
+h2.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+h4.drop,
+h2.drop {
+    transform: translateY(100px);
+}
+
+.artists-height-fix {
+    min-height: 20px;
+}
+
+h2.scrolling,
+h4.scrolling {
+    /* -webkit-animation: slide 30s linear infinite; */
+    position: absolute;
+    animation: slide 20s linear infinite;
+}
+
+@keyframes slide {
+    0% {
+        /* left: 100%; */
+        transform: translateX(290px);
+    }
+    100% {
+        /* left: -100%; */
+        transform: translateX(-100%);
+    }
+}
